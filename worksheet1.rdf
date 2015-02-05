@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xml:base="http://users.ecs.soton.ac.uk/fc4g11/">
+
+    <foaf:Person rdf:ID="me">
+        <foaf:familyName>Chapman</foaf:familyName>
+        <foaf:firstName>Felix</foaf:firstName>
+        <foaf:knows rdf:resource="http://id.ecs.soton.ac.uk/person/60"/>
+    </rdf:Description>
+
+</rdf:RDF>
