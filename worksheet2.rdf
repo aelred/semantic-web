@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+]>
+<rdf:RDF 
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xml:base="http://example.org/ontology/">
+
+    <rdf:Description rdf:about="">
+        <dc:title>Example University Schema</dc:title>
+        <dc:description>This RDF schema was created as an example for the COMP6028/COMP6050 module.</dc:description>
+        <dc:creator rdf:resource="mailto:aelred717@gmail.com"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-02-20</dc:date>
+    </rdf:Description>
+
+    <rdfs:Class rdf:ID="Student">
+        <rdfs:subClassOf rdf:resource="&foaf;Person"/>
+        <rdfs:comment>A person who is studying at some university.</rdfs:comment>
+    </rdfs:Class>
+
+    <rdfs:Class rdf:ID="Academic">
+        <rdfs:subClassOf rdf:resource="&foaf;Person"/>
+        <rdfs:comment>A person who teaches at some university.</rdfs:comment>
+    </rdfs:Class>
+
+    <rdfs:Class rdf:ID="University">
+        <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+        <rdfs:comment>A higher education organization.</rdfs:comment>
+    </rdfs:Class>
+
+    <rdfs:Class rdf:ID="Module">
+        <rdfs:subClassOf rdf:resource="&foaf;Group"/>
+        <rdfs:comment>A unit of teaching at a university.</rdfs:comment>
+    </rdfs:Class>
+
+    <rdf:Property rdf:ID="hasEmployee">
+        <rdfs:subPropertyOf rdf:resource="&foaf;member"/>
+        <rdfs:domain rdf:resource="University"/>
+        <rdfs:range rdf:resource="Academic"/>
+        <rdfs:comment>A university has employees who are academics.</rdfs:comment>
+    </rdf:Property>
+
+    <rdf:Property rdf:ID="hasStudent">
+        <rdfs:subPropertyOf rdf:resource="&foaf;member"/>
+        <rdfs:domain rdf:resource="University"/>
+        <rdfs:range rdf:resource="Student"/>
+        <rdfs:comment>A university has students.</rdfs:comment>
+    </rdf:Property>
+
+    <rdf:Property rdf:ID="taughtBy">
+        <rdfs:subPropertyOf rdf:resource="&foaf;member"/>
+        <rdfs:domain rdf:resource="Module"/>
+        <rdfs:range rdf:resource="Academic"/>
+        <rdfs:comment>A module is taught by an academic.</rdfs:comment>
+    </rdf:Property>
+
+    <rdf:Property rdf:ID="hasEnrolled">
+        <rdfs:subPropertyOf rdf:resource="&foaf;member"/>
+        <rdfs:domain rdf:resource="Module"/>
+        <rdfs:range rdf:resource="Student"/>
+        <rdfs:comment>A module has students enrolled on it.</rdfs:comment>
+    </rdf:Property>
+
+    <rdf:Property rdf:ID="taughtAt">
+        <rdfs:domain rdf:resource="Module"/>
+        <rdfs:range rdf:resource="University"/>
+        <rdfs:comment>A module is taught at some university.</rdfs:comment>
+    </rdf:Property>
+
+</rdf:RDF>
