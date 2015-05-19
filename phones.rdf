@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY ph "http://example.org/ontology/phone/#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+<rdf:RDF xmlns="http://example.org/ontology/phone/"
+     xml:base="http://example.org/ontology/phone/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ph="http://example.org/ontology/phone/#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+    <owl:ObjectProperty rdf:about="&ph;hasOS">
+        <rdfs:range rdf:resource="&ph;OperatingSystem"/>
+        <rdfs:domain rdf:resource="&ph;Phone"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&ph;madeBy">
+        <rdfs:range rdf:resource="&ph;Company"/>
+    </owl:ObjectProperty>
+    
+    <owl:DatatypeProperty rdf:about="&ph;hasName"/>
+    
+    <owl:DatatypeProperty rdf:about="&ph;hasPrice">
+        <rdfs:domain rdf:resource="&ph;Phone"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&ph;hasScreenSize">
+        <rdfs:domain rdf:resource="&ph;Phone"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+    <owl:Class rdf:about="&ph;Company"/>
+    
+    <owl:Class rdf:about="&ph;OperatingSystem"/>
+    
+    <owl:Class rdf:about="&ph;Phone"/>
+    
+    <ph:Company rdf:about="&ph;AAPL">
+        <ph:hasName>Apple Computer Inc.</ph:hasName>
+    </ph:Company>
+    
+    <ph:Company rdf:about="&ph;GOOG">
+        <ph:hasName>Google Inc.</ph:hasName>
+    </ph:Company>
+    
+    <ph:Company rdf:about="&ph;MMI">
+        <ph:hasName>Motorola Mobility Inc.</ph:hasName>
+    </ph:Company>
+    
+    <ph:Company rdf:about="&ph;MSFT">
+        <ph:hasName>Microsoft Corporation</ph:hasName>
+    </ph:Company>
+    
+    <ph:Company rdf:about="&ph;NOK">
+        <ph:hasName>Nokia Oyj</ph:hasName>
+    </ph:Company>
+    
+    <ph:OperatingSystem rdf:about="&ph;andr">
+        <ph:hasName>Android</ph:hasName>
+        <ph:madeBy rdf:resource="&ph;GOOG"/>
+    </ph:OperatingSystem>
+    
+    <ph:OperatingSystem rdf:about="&ph;ios">
+        <rdf:type rdf:resource="&ph;OperatingSystem"/>
+        <ph:hasName>iOS</ph:hasName>
+        <ph:madeBy rdf:resource="&ph;AAPL"/>
+    </ph:OperatingSystem>
+    
+    <ph:Phone rdf:about="&ph;ip4s">
+        <rdf:type rdf:resource="&ph;Phone"/>
+        <ph:hasScreenSize rdf:datatype="&xsd;decimal">3.5</ph:hasScreenSize>
+        <ph:hasPrice rdf:datatype="&xsd;decimal">450</ph:hasPrice>
+        <ph:hasName>iPhone 4s</ph:hasName>
+        <ph:madeBy rdf:resource="&ph;AAPL"/>
+        <ph:hasOS rdf:resource="&ph;ios"/>
+    </ph:Phone>
+    
+    <ph:Phone rdf:about="&ph;ip5">
+        <rdf:type rdf:resource="&ph;Phone"/>
+        <ph:hasScreenSize rdf:datatype="&xsd;decimal">4</ph:hasScreenSize>
+        <ph:hasPrice rdf:datatype="&xsd;decimal">530</ph:hasPrice>
+        <ph:hasName>iPhone 5</ph:hasName>
+        <ph:madeBy rdf:resource="&ph;AAPL"/>
+        <ph:hasOS rdf:resource="&ph;ios"/>
+    </ph:Phone>
+    
+    <ph:Phone rdf:about="&ph;lum800">
+        <rdf:type rdf:resource="&ph;Phone"/>
+        <ph:hasScreenSize rdf:datatype="&xsd;decimal">3.5</ph:hasScreenSize>
+        <ph:hasPrice rdf:datatype="&xsd;decimal">520</ph:hasPrice>
+        <ph:hasName>Lumia 800</ph:hasName>
+        <ph:madeBy rdf:resource="&ph;NOK"/>
+        <ph:hasOS rdf:resource="&ph;wp7"/>
+    </ph:Phone>
+
+    <ph:Phone rdf:about="&ph;lum920">
+        <rdf:type rdf:resource="&ph;Phone"/>
+        <ph:hasScreenSize rdf:datatype="&xsd;decimal">4.5</ph:hasScreenSize>
+        <ph:hasPrice rdf:datatype="&xsd;decimal">520</ph:hasPrice>
+        <ph:hasName>Lumia 920</ph:hasName>
+        <ph:madeBy rdf:resource="&ph;NOK"/>
+        <ph:hasOS rdf:resource="&ph;wp7"/>
+    </ph:Phone>
+    
+    <ph:Phone rdf:about="&ph;razhd">
+        <rdf:type rdf:resource="&ph;Phone"/>
+        <ph:hasScreenSize rdf:datatype="&xsd;decimal">4.7</ph:hasScreenSize>
+        <ph:hasPrice rdf:datatype="&xsd;decimal">480</ph:hasPrice>
+        <ph:hasName>RAZR HD</ph:hasName>
+        <ph:madeBy rdf:resource="&ph;MMI"/>
+        <ph:hasOS rdf:resource="&ph;andr"/>
+    </ph:Phone>
+    
+    <ph:Phone rdf:about="&ph;razi">
+        <rdf:type rdf:resource="&ph;Phone"/>
+        <ph:hasPrice rdf:datatype="&xsd;decimal">340</ph:hasPrice>
+        <ph:hasScreenSize rdf:datatype="&xsd;decimal">4.3</ph:hasScreenSize>
+        <ph:hasName>RAZR i</ph:hasName>
+        <ph:madeBy rdf:resource="&ph;MMI"/>
+        <ph:hasOS rdf:resource="&ph;andr"/>
+    </ph:Phone>
+    
+    <ph:OperatingSystem rdf:about="&ph;wp7">
+        <rdf:type rdf:resource="&ph;OperatingSystem"/>
+        <ph:hasName>Windows Phone 7</ph:hasName>
+        <ph:madeBy rdf:resource="&ph;MSFT"/>
+    </ph:OperatingSystem>
+</rdf:RDF>
